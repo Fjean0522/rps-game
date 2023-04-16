@@ -3,4 +3,3 @@ function computerChoice() {
     return choice[Math.floor(Math.random() * choice.length)]
 }
 
-computerChoice()
