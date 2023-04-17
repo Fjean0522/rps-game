@@ -1,7 +1,7 @@
 /*PSEUDOCODE
 Rules
     there are 2 opposing sides: player vs computer(cpu)
-    both side start off with 0 points
+    both sides start off with 0 points
     every round, each side has a choice of either (Rock , Paper, or Scissors) 
     cpu's choice is randomized
     player gets to choose 
@@ -26,3 +26,12 @@ Playing a Round
         after each game, player can choose to play again
 */
 
+let playerCount = 0
+let cpuCount = 0
+//starting scores
+
+const choices = ['Rock', 'Paper', 'Scisssors'];
+const cpuChoice = choices[Math.floor(Math.random() * choices.length)]
+//creates a varibale that makes a random choice for cpu from the choices array
+const getCpuChoice = () => cpuChoice
+// creates a function that returns cpuChoice
