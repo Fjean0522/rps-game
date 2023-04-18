@@ -44,12 +44,23 @@ body {
 }
 
 .choices button {
-    background-color: transparent;
-    color: aliceblue;
+    background-color: aliceblue;
+    color: black;
     font-weight: bold;
     border: 1.5px solid aliceblue;
     border-radius: 10px;
     height: 54px;
     width: 100px;
     
+}
+
+.choices button:hover {
+    transform: scale(1.1);
+    background-color: black;
+    color: aliceblue;
+}
+
+.choices button:active {
+    background-color: aliceblue;
+    color: black;
 }
