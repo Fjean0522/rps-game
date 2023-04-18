@@ -1,4 +1,4 @@
-# smiley-move
+# rps-game
 
 Game of Rock, Paper, Scissors. Created to further practice javascript functions.
 
