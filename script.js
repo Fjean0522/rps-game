@@ -31,13 +31,17 @@ Playing a Round
         after each game, player can choose to play again
 */
 
+/*CREATE AND CONNECT VARIABLES TO HTML DOC TO DISPLAY
+  BOTH SIDE'S CHOICES & GAME RESULTS*/
 const playerChoiceDisplay = document.getElementById("player-choice")
 const cpuChoiceDisplay = document.getElementById("cpu-choice")
 const resultsDisplay = document.getElementById("results")
-const possibleChoices = document.querySelectorAll('button')
-let playerChoice
 
-// GETTING PLAYER CHOICE & DISPLAYING COMPUTER CHOICE AND RESULTS
+//CREATE VARIBALE TO GET CHOICES FROM HTML BUTTONS 
+const possibleChoices = document.querySelectorAll('button')
+
+// GET & DISPLAY PLAYER CHOICE, COMPUTER CHOICE, & RESULTS
+let playerChoice
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
     playerChoice = e.target.id
     playerChoiceDisplay.innerHTML = playerChoice
@@ -45,7 +49,7 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click
     resultsDisplay.innerHTML = getRoundResults()
 }))
 
-// CALCULATING AND RADOMIZING COMPUTER'S CHOICE
+// CALCULATE AND RADOMIZE COMPUTER'S CHOICE
 function getCpuChoice() {
     const cpuChoice = Math.floor(Math.random() * possibleChoices.length)
     /*generates a random number from 0 to amount of options in possibleChoices.
@@ -59,7 +63,7 @@ function getCpuChoice() {
     }
 }
 
-//CALCULATING RESULTS
+//CALCULATE RESULTS
 function getRoundResults() {
     if (playerChoice == 'Rock' && getCpuChoice() == 'Scissors' ||
         playerChoice == 'Scissors' && getCpuChoice() == 'Paper'||
