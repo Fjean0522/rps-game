@@ -27,10 +27,6 @@ Playing a Round
         after each game, player can choose to play again
 */
 
-let playerScore = 0
-let cpuScore = 0
-//starting scores
-
 const choices = ['rock', 'paper', 'scissors'];
 const cpuChoice = choices[Math.floor(Math.random() * choices.length)]
 //creates a varibale that makes a random choice for cpu from the choices array
@@ -45,19 +41,15 @@ function playRound() {
         playerChoice == 'scissors' && cpuChoice == 'paper'||                   
         playerChoice == 'paper' && cpuChoice == 'rock') {
             playerScore++
-            console.log("player wins")
-            console.log(`you chose: ${playerChoice}`)
-            console.log(`cpu chose: ${cpuChoice}`)
-            console.log(`player score: ${playerScore}  cpu score: ${cpuScore}`)
+            console.log('player wins')
+            console.log(`${playerChoice} beats ${cpuChoice}`);
     } else if (playerChoice == cpuChoice) {
-        console.log('It\'s a tie')
+        return 'It\'s a tie'
     } else {
         cpuScore++
         console.log('Cpu wins')
-        console.log(`cpu chose: ${cpuChoice}`)
-        console.log(`you chose: ${playerChoice}`)
-        console.log(`player score: ${playerScore}  cpu score: ${cpuScore}`)
+        console.log(`${cpuChoice} beats ${playerChoice}`)
     }
 }
 
-playRound('rock')
+console.log(playRound('rock'))
