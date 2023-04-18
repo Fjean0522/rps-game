@@ -27,29 +27,25 @@ Playing a Round
         after each game, player can choose to play again
 */
 
-const choices = ['rock', 'paper', 'scissors'];
-const cpuChoice = choices[Math.floor(Math.random() * choices.length)]
-//creates a varibale that makes a random choice for cpu from the choices array
-const getCpuChoice = () => cpuChoice
+const possibleChoices = ['rock', 'paper', 'scissors'];
+const cpuChoice = possibleChoices[Math.floor(Math.random() * possibleChoices.length)]
+//creates a varibale that makes a random choice for cpu from the possibleChoices array
+
+const getCpuChoice = () => cpuChoice 
 // creates a function that returns cpuChoice
 
 function playRound() {
-    let playerChoice = prompt('Choose rock, paper, or scissors:')
-    playerChoice = playerChoice.toLowerCase()
+    let playerChoice = prompt('Choose one of the following: rock, paper, scissors')
     getCpuChoice()
     if (playerChoice == 'rock' && cpuChoice == 'scissors' ||
-        playerChoice == 'scissors' && cpuChoice == 'paper'||                   
+        playerChoice == 'scissors' && cpuChoice == 'paper'||
         playerChoice == 'paper' && cpuChoice == 'rock') {
-            playerScore++
-            console.log('player wins')
-            console.log(`${playerChoice} beats ${cpuChoice}`);
-    } else if (playerChoice == cpuChoice) {
-        return 'It\'s a tie'
-    } else {
-        cpuScore++
-        console.log('Cpu wins')
-        console.log(`${cpuChoice} beats ${playerChoice}`)
-    }
+            console.log('You win!')
+            console.log(`${playerChoice} beats ${cpuChoice}`)
+        } else if (playerChoice == cpuChoice) {
+            console.log('It\'s a tie')
+        } else {
+            console.log('Cpu wins!')
+            console.log(`${cpuChoice} beats ${playerChoice}`)
+        }
 }
-
-console.log(playRound('rock'))
