@@ -34,15 +34,26 @@ const possibleChoices = document.querySelectorAll('button')
 let playerChoice
 let results
 
+// GETTING PLAYER AND COMPUTER CHOICES
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
     playerChoice = e.target.id
     playerChoiceDisplay.innerHTML = playerChoice
+    cpuChoiceDisplay.innerHTML = getCpuChoice()
 }))
 
-const cpuChoice = possibleChoices[Math.floor(Math.random() * possibleChoices.length)]
-//creates a varibale that makes a random choice for cpu from the possibleChoices array
-
-
+// CALCULATING AND RADOMIZING COMPUTER'S CHOICE
+function getCpuChoice() {
+    const cpuChoice = Math.floor(Math.random() * possibleChoices.length)
+    /*generates a random number from 0 to amount of options in possibleChoices.
+      there are 3 options, so random number would be from 0 - 2*/
+    if (cpuChoice == 0) {
+        return 'Rock'
+    } else if (cpuChoice == 1) {
+        return 'Paper'
+    } else {
+        return 'Scissors'
+    }
+}
 
 function playRound() {
     if (playerChoice == 'rock' && cpuChoice == 'scissors' ||
