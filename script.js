@@ -27,16 +27,24 @@ Playing a Round
         after each game, player can choose to play again
 */
 
-const possibleChoices = ['rock', 'paper', 'scissors'];
+const playerChoiceDisplay = document.getElementById("player-choice")
+const cpuChoiceDisplay = document.getElementById("cpu-choice")
+const resultsDisplay = document.getElementById("results")
+const possibleChoices = document.querySelectorAll('button')
+let playerChoice
+let results
+
+possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
+    playerChoice = e.target.id
+    playerChoiceDisplay.innerHTML = playerChoice
+}))
+
 const cpuChoice = possibleChoices[Math.floor(Math.random() * possibleChoices.length)]
 //creates a varibale that makes a random choice for cpu from the possibleChoices array
 
-const getCpuChoice = () => cpuChoice 
-// creates a function that returns cpuChoice
+
 
 function playRound() {
-    let playerChoice = prompt('Choose one of the following: rock, paper, scissors')
-    getCpuChoice()
     if (playerChoice == 'rock' && cpuChoice == 'scissors' ||
         playerChoice == 'scissors' && cpuChoice == 'paper'||
         playerChoice == 'paper' && cpuChoice == 'rock') {
