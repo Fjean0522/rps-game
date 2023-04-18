@@ -4,14 +4,52 @@
 
 body {
     margin: 0px;
+    background-color: rgb(247, 235, 220);
 }
-
+/* HEADER */
 .header {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
     color: aliceblue;
-    height: 136px;
+    height: 116px;
     font-size: 20px;
+}
+
+/* GAME */
+.game-container {
+    background-color: black;
+    color: aliceblue;
+    height: 375px;
+    width: 700px;
+    margin: 55px 50px 40px 250px;
+}
+
+/* DISPLAYS */
+#displays {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 2rem;
+}
+
+/* BUTTONS */
+.choices {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 24px;
+    margin-left: 3px;
+}
+
+.choices button {
+    background-color: transparent;
+    color: aliceblue;
+    font-weight: bold;
+    border: 1.5px solid aliceblue;
+    border-radius: 10px;
+    height: 54px;
+    width: 100px;
+    
 }
