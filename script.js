@@ -22,8 +22,12 @@ Playing a Round
         if cpu chooses Paper, and player chooses Rock) 
         {cpu wins and 1 point is added}
 
+    SAME CHOICE
+        if (both sides chooses the same thing)
+        {then it is a tie}
+
     Winning
-        wichever side reaches 3 points first, wins
+        wichever side reaches 3 points first, wins.
         after each game, player can choose to play again
 */
 
@@ -32,13 +36,13 @@ const cpuChoiceDisplay = document.getElementById("cpu-choice")
 const resultsDisplay = document.getElementById("results")
 const possibleChoices = document.querySelectorAll('button')
 let playerChoice
-let results
 
-// GETTING PLAYER AND COMPUTER CHOICES
+// GETTING PLAYER CHOICE & DISPLAYING COMPUTER CHOICE AND RESULTS
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
     playerChoice = e.target.id
     playerChoiceDisplay.innerHTML = playerChoice
     cpuChoiceDisplay.innerHTML = getCpuChoice()
+    resultsDisplay.innerHTML = getRoundResults()
 }))
 
 // CALCULATING AND RADOMIZING COMPUTER'S CHOICE
@@ -46,25 +50,24 @@ function getCpuChoice() {
     const cpuChoice = Math.floor(Math.random() * possibleChoices.length)
     /*generates a random number from 0 to amount of options in possibleChoices.
       there are 3 options, so random number would be from 0 - 2*/
-    if (cpuChoice == 0) {
+    if (cpuChoice === 0) {
         return 'Rock'
-    } else if (cpuChoice == 1) {
+    } else if (cpuChoice === 1) {
         return 'Paper'
     } else {
         return 'Scissors'
     }
 }
 
-function playRound() {
-    if (playerChoice == 'rock' && cpuChoice == 'scissors' ||
-        playerChoice == 'scissors' && cpuChoice == 'paper'||
-        playerChoice == 'paper' && cpuChoice == 'rock') {
-            console.log('You win!')
-            console.log(`${playerChoice} beats ${cpuChoice}`)
-        } else if (playerChoice == cpuChoice) {
-            console.log('It\'s a tie')
+//CALCULATING RESULTS
+function getRoundResults() {
+    if (playerChoice == 'Rock' && getCpuChoice() == 'Scissors' ||
+        playerChoice == 'Scissors' && getCpuChoice() == 'Paper'||
+        playerChoice == 'Paper' && getCpuChoice() == 'Rock') {
+            return `You win! ${playerChoice} beats ${getCpuChoice()}`
+        } else if (playerChoice == getCpuChoice()) {
+            return 'It\'s a tie!'
         } else {
-            console.log('Cpu wins!')
-            console.log(`${cpuChoice} beats ${playerChoice}`)
+            return `Cpu wins! ${getCpuChoice()} beats ${playerChoice}`
         }
 }
