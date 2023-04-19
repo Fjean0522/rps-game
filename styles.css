@@ -17,6 +17,10 @@ body {
     font-size: 20px;
 }
 
+.header h1 {
+    word-spacing: 16px;
+}
+
 /* GAME */
 .game-container {
     background-color: black;
