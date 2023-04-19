@@ -31,8 +31,11 @@ Playing a Round
         after each game, player can choose to play again
 */
 
-/*CREATE AND CONNECT VARIABLES TO HTML DOC TO DISPLAY
+/*CREATE AND CONNECT VARIABLES TO HTML DOC TO DISPLAY,
   BOTH SIDE'S CHOICES & GAME RESULTS*/
+let playerChoice
+let cpuChoice
+let results
 const playerChoiceDisplay = document.getElementById("player-choice")
 const cpuChoiceDisplay = document.getElementById("cpu-choice")
 const resultsDisplay = document.getElementById("results")
@@ -40,38 +43,42 @@ const resultsDisplay = document.getElementById("results")
 //CREATE VARIBALE TO GET CHOICES FROM HTML BUTTONS 
 const possibleChoices = document.querySelectorAll('button')
 
-// GET & DISPLAY PLAYER CHOICE, COMPUTER CHOICE, & RESULTS
-let playerChoice
+// GET & DISPLAY PLAYER CHOICE
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
     playerChoice = e.target.id
-    playerChoiceDisplay.innerHTML = playerChoice
-    cpuChoiceDisplay.innerHTML = getCpuChoice()
-    resultsDisplay.innerHTML = getRoundResults()
+    playerChoiceDisplay.innerHTML = playerChoice 
+    getCpuChoice()
+    getRoundResults()  /*invoke functions to get & display cpu choice & results,
+    after player has clicked on choice*/
 }))
 
-// CALCULATE AND RADOMIZE COMPUTER'S CHOICE
+// CALCULATE AND RANDOMIZE COMPUTER'S CHOICE
 function getCpuChoice() {
-    const cpuChoice = Math.floor(Math.random() * possibleChoices.length)
+    const calCpuChoice = Math.floor(Math.random() * possibleChoices.length)
     /*generates a random number from 0 to amount of options in possibleChoices.
       there are 3 options, so random number would be from 0 - 2*/
-    if (cpuChoice === 0) {
-        return 'Rock'
-    } else if (cpuChoice === 1) {
-        return 'Paper'
+    if (calCpuChoice === 0) {
+        cpuChoice = 'Rock'
+    } else if (calCpuChoice === 1) {
+        cpuChoice = 'Paper'
     } else {
-        return 'Scissors'
+        cpuChoice = 'Scissors'
     }
+    cpuChoiceDisplay.innerHTML = cpuChoice  /*connect to html #cpu-choice,
+    to display cpu's choice */
 }
 
 //CALCULATE RESULTS
 function getRoundResults() {
-    if (playerChoice == 'Rock' && getCpuChoice() == 'Scissors' ||
-        playerChoice == 'Scissors' && getCpuChoice() == 'Paper'||
-        playerChoice == 'Paper' && getCpuChoice() == 'Rock') {
-            return `You win! ${playerChoice} beats ${getCpuChoice()}`
-        } else if (playerChoice == getCpuChoice()) {
-            return 'It\'s a tie!'
+    if (playerChoice == 'Rock' && cpuChoice == 'Scissors' ||
+        playerChoice == 'Scissors' && cpuChoice == 'Paper'||
+        playerChoice == 'Paper' && cpuChoice == 'Rock') {
+            results = `You win! ${playerChoice} beats ${cpuChoice}`
+        } else if (playerChoice == cpuChoice) {
+            results = 'It\'s a tie!'
         } else {
-            return `Cpu wins! ${getCpuChoice()} beats ${playerChoice}`
+            results = `Cpu wins! ${cpuChoice} beats ${playerChoice}`
         }
+        resultsDisplay.innerHTML = results  /*connect to html #results,
+        to display results */
 }
