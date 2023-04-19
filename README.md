@@ -2,6 +2,9 @@
 
 Game of Rock, Paper, Scissors. Created to practice and further solidify knowledge of javascript functions and if statements.
 
+# Live site
+https://fjean0522.github.io/rps-game/
+
 ## 1 Author
 Fjean0522
 
