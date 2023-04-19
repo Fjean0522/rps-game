@@ -25,10 +25,6 @@ Playing a Round
     SAME CHOICE
         if (both sides chooses the same thing)
         {then it is a tie}
-
-    Winning
-        wichever side reaches 3 points first, wins.
-        after each game, player can choose to play again
 */
 
 /*CREATE AND CONNECT VARIABLES TO HTML DOC TO DISPLAY,
