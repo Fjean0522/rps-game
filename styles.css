@@ -27,6 +27,7 @@ body {
     color: aliceblue;
     height: 375px;
     width: 700px;
+    border-radius: 12px;
     margin: 55px 50px 40px 250px;
 }
 
